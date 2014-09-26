@@ -1,0 +1,8 @@
+/**
+ * payments - atoms-app-payments i
+ * @version v1.0.0
+ * @link    http://tapquo.com
+ * @author   ()
+ * @license MIT
+ */
+[data-molecule-form=creditcard] [data-atom-input]:nth-child(n+2){width:31.5%}[data-molecule-form=creditcard] [data-atom-input]:nth-child(n+3){margin-left:2.5%}

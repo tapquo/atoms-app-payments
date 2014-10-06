@@ -1,6 +1,6 @@
 "use strict"
 
-class Atoms.Molecule.CreditCard extends Atoms.Molecule.Form
+class Atoms.Molecule.Creditcard extends Atoms.Molecule.Form
 
   @extends  : true
 
@@ -9,13 +9,13 @@ class Atoms.Molecule.CreditCard extends Atoms.Molecule.Form
   @default  :
     events: ["submit"],
     children: [
-      "Atom.Input": id: "name", name: "name", type: "text", maxlength: 16, placeholder: "Credit card name", events: ["keyup"], required: true
+      "Atom.Input": id: "name", name: "name", type: "text", placeholder: "Credit card name", events: ["keyup"], required: true
     ,
       "Atom.Input": id: "number", name: "number", type: "tel", maxlength: 16, placeholder: "Credit card number", events: ["keyup"], required: true
     ,
       "Atom.Input": id: "month", name: "month", type: "tel", placeholder: "MM", min: 1, max: 12, events: ["keyup"], required: true
     ,
-      "Atom.Input": id: "year", name: "year", type: "tel", placeholder: "YYYY", maxlength: 4, events: ["keyup"], required: true
+      "Atom.Input": id: "year", name: "year", type: "tel", placeholder: "YYYY", minlength: 4, maxlength: 4, events: ["keyup"], required: true
     ,
       "Atom.Input": id: "cvc", name: "cvc", type: "tel", placeholder: "CVC", maxlength: 4, events: ["keyup"], required: true
     ,
@@ -23,11 +23,8 @@ class Atoms.Molecule.CreditCard extends Atoms.Molecule.Form
     ]
 
   setValues: (attributes = {}) ->
-    @name.value(attributes.name)
-    @number.value(attributes.number)
-    @month.value(attributes.month)
-    @year.value(attributes.year)
-    @cvc.value(attributes.cvc)
+    @[item].value attributes[item] for item of attributes
+
 
   # -- Children Bubble Events --------------------------------------------------
   onInputKeyup: (event, atom) ->

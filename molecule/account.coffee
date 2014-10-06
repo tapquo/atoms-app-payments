@@ -84,10 +84,7 @@ class Atoms.Molecule.AccountNumber extends Atoms.Molecule.Form
     ]
 
   setValues: (attributes = {}) ->
-    @countrycode.value(attributes.countrycode)
-    @checkdigits.value(attributes.checkdigits)
-    @bankandoffice.value(attributes.bankandoffice)
-
+    @[item].value attributes[item] for item of attributes
 
   onInputKeyup: (event, atom) ->
     checked = true
@@ -112,6 +109,9 @@ class Atoms.Molecule.AccountNumber extends Atoms.Molecule.Form
     else if !code or iban.length isnt CODE_LENGTHS[code[1]] or mod97(digits) isnt 1
       checked = false
       @bankandoffice.error(true) if @bankandoffice.value().length > 0
+
+    if @countrycode.value().length is 2 and CODE_LENGTHS[@countrycode.value()]
+      @bankandoffice.refresh maxlength: CODE_LENGTHS[@countrycode.value()]
 
     if checked
       @submit.el.removeAttr "disabled"

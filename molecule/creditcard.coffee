@@ -1,6 +1,6 @@
 "use strict"
 
-class Atoms.Molecule.Creditcard extends Atoms.Molecule.Form
+class Atoms.Molecule.CreditCard extends Atoms.Molecule.Form
 
   @extends  : true
 

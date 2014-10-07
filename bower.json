@@ -1,13 +1,13 @@
 {
-  "name": "atoms-app-leaflet",
+  "name": "atoms-app-payments",
   "version": "1.0.0",
-  "main": "atoms.app.leaflet.js",
+  "main": "atoms.app.payments.js",
   "homepage": "http://atoms.tapquo.com",
   "license": "MIT",
   "authors": [
     "Javi Jimenez", "Javi Jimenez <javi@tapquo.com>"],
   "repository": {
     "type": "git",
-    "url": "git://github.com/tapquo/atoms-app-leaflet.git"
+    "url": "git://github.com/tapquo/atoms-app-payments.git"
   }
 }
